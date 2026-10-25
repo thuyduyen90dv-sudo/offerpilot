@@ -1,0 +1,2 @@
+# OfferPilot
+Keep new costs at zero. Never enable paid models or paid infrastructure. Demo companies and people are fictional. Label deterministic rule inference clearly. Never submit real applications. Require explicit approval for every simulated application. Enforce user ownership on all server records. Never commit secrets or real resumes. Run `npm test` and `npm run build` in website before publishing. Maintain TASKS.md truthfully.

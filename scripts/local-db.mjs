@@ -1,0 +1,2 @@
+import {DatabaseSync} from 'node:sqlite';
+export function database(path=':memory:'){const db=new DatabaseSync(path);db.exec('CREATE TABLE IF NOT EXISTS states (owner TEXT PRIMARY KEY NOT NULL, version INTEGER NOT NULL DEFAULT 0, data TEXT NOT NULL)');return {prepare(sql){let args=[];return {bind(...values){args=values;return this;},async first(){return db.prepare(sql).get(...args)||null;},async run(){const r=db.prepare(sql).run(...args);return {meta:{changes:Number(r.changes)}};}}},close(){db.close();}};}
