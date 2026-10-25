@@ -1,0 +1,2 @@
+export const stages=['已发现','待审核','待投递','投递中','已投递','已查看','笔试','面试','Offer','被拒绝','已结束'];
+export function addInterview(state,item){const t=Date.parse(item.at);if(!Number.isFinite(t)||!item.company?.trim()||!item.role?.trim())throw Error('请填写公司、岗位和有效时间');if(state.interviews.some(i=>Math.abs(Date.parse(i.at)-t)<60*60*1000))throw Error('与已有面试间隔不足一小时，请调整时间');if(item.link&&!/^https:\/\//.test(item.link))throw Error('会议链接必须使用 HTTPS');state.interviews.push({...item,id:crypto.randomUUID()});}

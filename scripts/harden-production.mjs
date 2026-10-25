@@ -1,0 +1,4 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+let p='src/production-state.js',s=readFileSync(p,'utf8').replace("degree:'本科'","degree:''");writeFileSync(p,s);
+p='src/client.js';s=readFileSync(p,'utf8').replace("async function act(action,el){const id=el.dataset.id;","async function act(action,el){const id=el.dataset.id;if(action==='reload'){location.reload();return;}");writeFileSync(p,s);
+p='src/official-applications.js';s=readFileSync(p,'utf8');const before="const receipt={provider:'greenhouse',httpStatus:r.status";const after="if(providerResult?.success===false||providerResult?.error||providerResult?.errors){await env.DB.prepare('UPDATE application_attempts SET status=?,updated_at=? WHERE owner=? AND application_id=?').bind('unknown',new Date().toISOString(),owner,a.id).run();throw Error('官方响应包含错误信息，未记录为成功，请到官网核验');}const receipt={provider:'greenhouse',httpStatus:r.status";s=s.replace(before,after);writeFileSync(p,s);
