@@ -1,0 +1,1 @@
+import {readFileSync,writeFileSync} from 'node:fs';const p='tests/production.test.mjs';let s=readFileSync(p,'utf8');s=s.replace('FETCH:handler||async(url,options)=>{','FETCH:handler||(async(url,options)=>{').replace("throw Error('Unexpected test URL '+url);}};}","throw Error('Unexpected test URL '+url);})};}");writeFileSync(p,s);

@@ -1,0 +1,3 @@
+import {readFileSync,writeFileSync} from 'node:fs';for(const p of ['src/security.js','src/live-jobs.js','src/models.js','src/official-applications.js']){writeFileSync(p,readFileSync(p,'utf8').replaceAll("redirect:'error'","redirect:'manual'"));}
+const p='src/live-jobs.js';let s=readFileSync(p,'utf8');s=s.replace('if(!force&&old.refreshedAt&&','if(!force&&old.jobs.length&&old.refreshedAt&&');writeFileSync(p,s);
+const h='src/production.html';s=readFileSync(h,'utf8').replace('</style>','@media(max-width:780px){.pagehead{flex-wrap:wrap}.pagehead .actions .btn:not(.primary){display:inline-flex}}</style>');writeFileSync(h,s);

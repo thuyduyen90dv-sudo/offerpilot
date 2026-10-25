@@ -1,0 +1,28 @@
+name: OfferPilot cloud scheduler
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/scheduler.yml'
+      - 'scripts/cloud-tick.mjs'
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: offerpilot-cloud-scheduler
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node scripts/cloud-tick.mjs
+        env:
+          OFFERPILOT_ORIGIN: https://offerpilot-career-agent.haleleaf3.chatgpt.site
