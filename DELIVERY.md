@@ -10,7 +10,7 @@ https://offerpilot-career-agent.haleleaf3.chatgpt.site
 ## B. GitHub
 https://github.com/thuyduyen90dv-sudo/offerpilot
 
-用户创建并授权的仓库；完整源码同步以仓库实际提交为准。站点另有平台专属源码仓库。
+用户创建并授权的仓库，完整源码已上传并回读验证；提交 ceab4f86b7f6c09b633b3ed1571eadf3915170b8。站点另有平台专属源码仓库。
 
 ## C. Demo
 打开网站直接进入独立虚构档案，无需招聘账号或模型 Key。虚构用户林知夏。路线：开始智能求职 → Agent 时间线 → 自动投递 → 核对材料与授权 → SIM 回执 → 投递看板 → 完成处理并生成日报。详见 DEMO_GUIDE.md。
@@ -27,7 +27,7 @@ https://github.com/thuyduyen90dv-sudo/offerpilot
 - 面试提醒通过下载 ICS 导入日历，不是服务端推送。
 
 ## F. 测试
-12 项本地自动测试实际通过；完整公网 PowerShell API 验收通过。浏览器确认工作台加载及开始 Agent 后 6 次工具调用、5 个待审核任务。完整浏览器表单与移动端视口验收未完成，自动化读取多次超时。未将超时算作通过。
+12 项本地自动测试实际通过；完整公网 PowerShell API 验收通过，包含 DOCX 上传、解析、下载。GitHub Actions 的测试和构建运行 success。浏览器确认工作台加载、Agent 的 6 次工具调用、5 个待审核任务及投递审核弹窗。完整浏览器表单与移动端视口验收未完成，自动化读取多次超时。未将超时算作通过。
 
 ## G. 运行状态
 前端、Worker API、D1、规则 Agent、Demo：已通过上述公网检查。定时任务：未配置。无需本机常开。

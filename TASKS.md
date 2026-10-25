@@ -13,12 +13,18 @@
 - [x] 站点公开权限获得用户明确确认并已生效
 - [x] 浏览器工作台和 Agent 启动过程验收
 - [x] 用户创建 GitHub 空仓库并授权访问；初始化提交已完成
-- [ ] 上传最终完整源码到 GitHub，检查远端提交
-- [ ] 发布包含 DOCX 导出的最终版本并验证
+- [x] 上传最终完整源码到 GitHub，已回读验证；GitHub Actions completed / success
+- [x] 发布包含 DOCX 导出的最终版本，完整公网复测及 DOCX 上传解析下载通过
 
 站点：appgprj_6addacc0d6ac8191899df846cfc16a3e
 
-最近已验证部署：appgdep_6addb232d8048191a482353d84362498
+最近已验证部署：appgdep_6addb5955f0481919a80cadf84093ef7（版本 3，succeeded）
+
+部署源码提交：b153f893b974f78a43038c20d194a93fd58b9ed7
+
+GitHub 完整源码提交：ceab4f86b7f6c09b633b3ed1571eadf3915170b8
+
+GitHub CI：https://github.com/thuyduyen90dv-sudo/offerpilot/actions/runs/40174348957 （实际查询 success）
 
 公网：https://offerpilot-career-agent.haleleaf3.chatgpt.site
 

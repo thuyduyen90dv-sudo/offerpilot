@@ -39,4 +39,12 @@ Assert-Demo ($isolated.state.applications.Count -eq 0) 'session isolation'
 Invoke-DemoApi 'demo/reset' @{} | Out-Null
 Assert-Demo ((Invoke-DemoApi 'state').state.applications.Count -eq 0) 'reset'
 Write-Output 'PASS public session isolation and Demo reset'
+$fileBytes = [System.IO.File]::ReadAllBytes((Join-Path $PSScriptRoot '../tests/fixtures/resume.docx'))
+Invoke-DemoApi 'upload' @{name='demo-resume.docx';base64=[Convert]::ToBase64String($fileBytes)} | Out-Null
+Assert-Demo ((Invoke-DemoApi 'state').state.resume -match 'React') 'cloud DOCX upload and parse'
+$document = Invoke-WebRequest -Uri "$base/api/docx" -WebSession $demoSession -TimeoutSec 25
+Assert-Demo ($document.StatusCode -eq 200 -and $document.Headers['Content-Type'] -match 'wordprocessingml') 'cloud DOCX export'
+Assert-Demo ($document.Content[0] -eq 80 -and $document.Content[1] -eq 75) 'valid ZIP signature'
+Invoke-DemoApi 'demo/reset' @{} | Out-Null
+Write-Output 'PASS cloud DOCX upload, parse and binary download'
 Write-Output 'PUBLIC_SMOKE_ALL_PASS'
